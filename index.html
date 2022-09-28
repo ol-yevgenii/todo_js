@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="body-wrapper">
+        <header class="header">
+            <section class="header_greetings">
+                <label>
+                    Hey, how are you,
+                    <input 
+                        type="text" 
+                        name="greatings" 
+                        id="greatings"
+                        placeholder="Here you name"
+                    >
+                    ?
+                </label>
+            </section>
+            <section class="header_clock">
+                <div class="header_clock-wrapper">
+                    <div class="header_clock-hours">19</div>
+                    <div class="header_clock-dots">:</div>
+                    <div class="header_clock-minutes">07</div>
+                </div>
+            </section>
+            <section class="header_weather">
+                <div class="header_weather-wrapper">
+                    <div class="header_weather-location">Kiev</div>
+                    <div class="header_weather-degrees">15°C</div>
+                </div>
+            </section>
+        </header>
+    
+        <main class="main">
+            <section class="create_todo">
+                <h1>Create a todo list</h1>
+                <form class="todo_form">
+                    <h3 class="todo_form-label">
+                        What will you gonna do?
+                    </h3>
+                    <label for="content">
+                        <input 
+                            type="text"
+                            name="content"
+                            id="content"
+                            placeholder="Input your task"
+                            autocomplit="off"
+                        >
+                    </label>
+                    <h3 class="todo_form-label">
+                        Pick a category
+                    </h3>
+                    <div class="todo_options">
+                        <label>
+                            <input 
+                                type="radio"
+                                name="category"
+                                id="category1"
+                                value="business"
+                            >
+                            <span class="bubble business"></span>
+                            <div>Business</div>
+                        </label>
+    
+                        <label>
+                            <input 
+                                type="radio"
+                                name="category"
+                                id="category2"
+                                value="personal"
+                            >
+                            <span class="bubble personal"></span>
+                            <div>Personal</div>
+                        </label>
+                    </div>
+                    <input 
+                        type="submit"
+                        value="Add todo"
+                    >
+                </form>
+            </section>
+            <section class="render_todo">
+                <h2 class="render_todo-label">ToDo List</h2>
+                <select 
+                    class="select_tasks" 
+                    name="task_status" 
+                    size=""
+                    id="task_status">
+                    <option value="1">All tasks</option>
+                    <option value="2">Current tasks</option>
+                    <option value="3">Done tasks</option>
+                </select>
+                <div class="render_todo-container">
+                    <div class="all_tasks">
+                        <div class="todo">
+                            <label>
+                                <input 
+                                    class="checkbox"
+                                    type="checkbox"
+                                    name="checkbox"
+                                >
+                            </label>
+                            <div class="todo_content">
+                                <input 
+                                    type="text"
+                                    value="make a coffee"
+                                    readonly
+                                >
+                            </div>
+                            <div class="todo_action">
+                                <button class="edit">
+                                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 256 256" id="Flat">
+                                        <path class="svg_path" d="M226.82813,61.17163l-32-31.99976a3.99854,3.99854,0,0,0-5.65625,0l-96,95.99976A4.00065,4.00065,0,0,0,92,128v32a4.0002,4.0002,0,0,0,4,4h32a4,4,0,0,0,2.82813-1.17139l96-96.00024A3.99913,3.99913,0,0,0,226.82813,61.17163ZM126.34277,156H100V129.65674l68.00012-68,26.343,26.34277Zm73.65686-73.65674L173.65662,56,192,37.65674,218.34277,64ZM220,120v88a12.01343,12.01343,0,0,1-12,12H48a12.01343,12.01343,0,0,1-12-12V48A12.01343,12.01343,0,0,1,48,36h88a4,4,0,0,1,0,8H48a4.00427,4.00427,0,0,0-4,4V208a4.00427,4.00427,0,0,0,4,4H208a4.00427,4.00427,0,0,0,4-4V120a4,4,0,0,1,8,0Z"/>
+                                      </svg>
+                                </button>
+                                <button class="delete">
+                                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 729.837 729.838" style="enable-background:new 0 0 729.837 729.838;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <path class="svg_path" d="M589.193,222.04c0-6.296,5.106-11.404,11.402-11.404S612,215.767,612,222.04v437.476c0,19.314-7.936,36.896-20.67,49.653     c-12.733,12.734-30.339,20.669-49.653,20.669H188.162c-19.315,0-36.943-7.935-49.654-20.669     c-12.734-12.734-20.669-30.313-20.669-49.653V222.04c0-6.296,5.108-11.404,11.403-11.404c6.296,0,11.404,5.131,11.404,11.404     v437.476c0,13.02,5.37,24.922,13.97,33.521c8.6,8.601,20.503,13.993,33.522,13.993h353.517c13.019,0,24.896-5.394,33.498-13.993     c8.624-8.624,13.992-20.503,13.992-33.498V222.04H589.193z"/>
+                                                    <path d="M279.866,630.056c0,6.296-5.108,11.403-11.404,11.403s-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.108-11.404,11.404-11.404s11.404,5.108,11.404,11.404V630.056z"/>
+                                                    <path d="M376.323,630.056c0,6.296-5.107,11.403-11.403,11.403s-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.108-11.404,11.404-11.404s11.403,5.108,11.403,11.404V630.056z"/>
+                                                    <path d="M472.803,630.056c0,6.296-5.106,11.403-11.402,11.403c-6.297,0-11.404-5.107-11.404-11.403v-405.07     c0-6.296,5.107-11.404,11.404-11.404c6.296,0,11.402,5.108,11.402,11.404V630.056L472.803,630.056z"/>
+                                                    <path d="M273.214,70.323c0,6.296-5.108,11.404-11.404,11.404c-6.295,0-11.403-5.108-11.403-11.404     c0-19.363,7.911-36.943,20.646-49.677C283.787,7.911,301.368,0,320.73,0h88.379c19.339,0,36.92,7.935,49.652,20.669     c12.734,12.734,20.67,30.362,20.67,49.654c0,6.296-5.107,11.404-11.403,11.404s-11.403-5.108-11.403-11.404     c0-13.019-5.369-24.922-13.97-33.522c-8.602-8.601-20.503-13.994-33.522-13.994h-88.378c-13.043,0-24.922,5.369-33.546,13.97     C278.583,45.401,273.214,57.28,273.214,70.323z"/>
+                                                    <path d="M99.782,103.108h530.273c11.189,0,21.405,4.585,28.818,11.998l0.047,0.048c7.413,7.412,11.998,17.628,11.998,28.818     v29.46c0,6.295-5.108,11.403-11.404,11.403h-0.309H70.323c-6.296,0-11.404-5.108-11.404-11.403v-0.285v-29.175     c0-11.166,4.585-21.406,11.998-28.818l0.048-0.048C78.377,107.694,88.616,103.108,99.782,103.108L99.782,103.108z      M630.056,125.916H99.782c-4.965,0-9.503,2.02-12.734,5.274L87,131.238c-3.255,3.23-5.274,7.745-5.274,12.734v18.056h566.361     v-18.056c0-4.965-2.02-9.503-5.273-12.734l-0.049-0.048C639.536,127.936,635.021,125.916,630.056,125.916z"/>
+                                                </g>
+                                            </g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="current_tasts">
+
+                    </div>
+                    <div class="done_tasks"></div>
+                </div>
+            </section>
+        </main>
+    
+        <footer class="footer">
+            Created by
+            <span>Oliinyk Yevgenii</span>
+        </footer>
+    </div>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
