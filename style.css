@@ -13,21 +13,25 @@ body {
 
 .body_wrapper {
     display: grid;
-    grid-template: minmax(auto, 90px) 1fr  minmax(auto, 50px) / 1fr;
+    grid-template: minmax(auto, 70px) 1fr  minmax(auto, 50px) / 1fr;
+
     min-height: 100vh;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 10px;
 }
 
 /* Header styles */
 
 .header {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     justify-content: center;
     align-items: center;
 
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 5px;
 }
 
 /* Greetings */
@@ -38,7 +42,7 @@ body {
 }
 
 .header_greetings > label {
-    padding: 10px;
+    width: 100%;
 }
 
 .greatings_name {
@@ -50,6 +54,11 @@ body {
     font-size: 1.1rem;
     font-weight: bold;
     color: rgba(90, 90, 90);
+}
+
+.greatings_name:hover {
+    text-shadow: 1px 1px 2px rgba(121, 199, 191, .4);
+    transition: all .2s;
 }
 
 .greatings_name::placeholder {
@@ -69,9 +78,13 @@ body {
 
 .header_clock-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
 
     width: 100%;
+}
+
+.header_clock-dots {
+    margin: 0 5px;
 }
 
 /* Weather */
@@ -82,15 +95,15 @@ body {
 
 .header_weather-wrapper {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
 }
 /* Header styles end */
 
 /* Main style */
 
 .main {
-    padding: 15px;
+    margin-top: 10px;
 }
 
 /* Create todo section */
@@ -115,6 +128,11 @@ body {
     border: 1px solid #e2e5e9;
 
     font-size: 1rem;
+}
+
+#content:hover {
+    box-shadow: 0 0 20px rgba(90, 90, 90, 0.195);
+    transition: all .2s;
 }
 
 #content:focus {
@@ -144,6 +162,13 @@ body {
     background: linear-gradient(90deg, #e8ebf0, #f5f7fa);
     border-radius: 8px;
     border: 1px solid #e2e5e9;
+    /* box-shadow: 0 0 10px rgba(90, 90, 90, 0.195); */
+}
+
+.category_hover:hover {
+    background: linear-gradient(90deg, #ebeef3, #f6f8fb);
+    box-shadow: 0 0 10px rgba(90, 90, 90, 0.195);
+    transition: all .2s ease-in-out;
 }
 
 .category_name {
@@ -226,16 +251,19 @@ body {
     padding: 10px;
 
     background-color: rgb(121, 199, 191);
-    border: 1px solid #e2e5e9;
+    border: none;
     border-radius: 8px;
     color: #f8f8f8;
 
     font-weight: 500;
     font-size: 1rem;
+
 }
 
 .add_todo:hover {
     background-color: rgb(108, 191, 181);
+    box-shadow: 0 0 20px rgba(90, 90, 90, 0.195);
+    transition: all .2s ease-in-out;
 }
 
 /* Render todo section */
@@ -249,7 +277,7 @@ body {
     justify-content: space-between;
 
     margin: 30px auto;
-    width: 90%;
+    width: 100%;
 }
 
 .render_todo-label {
@@ -266,6 +294,11 @@ body {
     padding: 0 3px;
 }
 
+.select_tasks:hover {
+    box-shadow: 0 0 20px rgba(90, 90, 90, 0.195);
+    transition: all .2s ease-in-out;
+}
+
 .select_tasks:focus {
     outline: none;
     border: 1px solid #caced2;
@@ -278,8 +311,14 @@ body {
     margin-bottom: 20px;
 }
 
+.todo > label {
+    display: flex;
+    justify-content: center;
+    width: 5%;
+}
+
 .todo_content {
-    width: 65%;
+    width: 70%;
 }
 
 #todo_content {
@@ -302,12 +341,23 @@ body {
     color: rgba(90, 90, 90, .5);
 }
 
+.todo_action {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+}
+
 .todo_action > button {
     background: linear-gradient(90deg, #e8ebf0, #f5f7fa);
     border-radius: 4px;
     border: 1px solid #e2e5e9;
 
     padding: 3px;
+}
+
+.todo_action > button:hover {
+    box-shadow: 0 0 10px rgba(90, 90, 90, 0.195);
+    transition: all .2s ease-in-out;
 }
 
 /* Main style end */
@@ -325,3 +375,24 @@ body {
 }
 
 /* Footer style end */
+
+/* Media */
+
+@media (min-width: 586px) {
+    .body_wrapper {
+        padding: 10px 20px;
+    }
+
+    .header_clock-wrapper {
+        justify-content: end;
+    }
+
+    .header_weather-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .todo_content {
+        width: 80%;
+    }
+}
