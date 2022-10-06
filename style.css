@@ -395,4 +395,8 @@ body {
     .todo_content {
         width: 80%;
     }
+
+    .todo_action {
+        width: 10%;
+    }
 }
