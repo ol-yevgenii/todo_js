@@ -82,8 +82,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 })
 
+const select = document.querySelector('.select_tasks');
+const allTasks = document.querySelector('.all_tasks');
+
 const renderTodo = () => {
-    const allTasks = document.querySelector('.all_tasks');
 
     allTasks.innerHTML = '';
 
@@ -106,6 +108,7 @@ const renderTodo = () => {
         // Change task style depend on condition 
 
         if (todo.done) {
+            todoItem.classList.add('done');
             todoContent.innerHTML = 
             `<input
                 class="todo_done"
@@ -116,6 +119,7 @@ const renderTodo = () => {
             >
             `
         } else {
+            todoItem.classList.remove('done');
             todoContent.innerHTML = 
             `<input
                 id="todo_content"
@@ -244,6 +248,36 @@ const renderTodo = () => {
             localStorage.setItem('todos', JSON.stringify(todos));
             renderTodo();
         })
-
+        
     })
-} 
+}
+
+// Condition tasks selector
+
+const todoFilter = (e) => {
+    const todos = allTasks.childNodes;
+    todos.forEach(todo => {
+        switch (e.target.value) {
+            case "1":
+                todo.style.display = 'flex';
+                break;
+            case "2":
+                if (!todo.classList.contains('done')) {
+                    todo.style.display = 'flex';
+                } else {
+                    todo.style.display = 'none';
+                }
+                break;
+            case "3":
+                if (todo.classList.contains('done')) {
+                    todo.style.display = 'flex';
+                } else {
+                    todo.style.display = 'none';
+                }
+                break;
+        }
+    })
+
+}
+
+select.addEventListener('change', todoFilter);
