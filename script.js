@@ -100,13 +100,13 @@ const getForecast = () => {
         const longitude = position.coords.longitude;
 
         // Weather API url
-        const weatherApiUrl = `http://api.weatherapi.com/v1/current.json?key=25fb10b92c0c480fa26183729221110&q=${latitude},${longitude}&aqi=no`
+        const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=1cd0b986641f9a39101ba38249143f0e&units=metric`
 
         fetch(weatherApiUrl)
         .then(res => res.json())
         .then(data => {
-            location.textContent = data.location.name + ',';
-            weather.textContent = Math.floor(data.current.temp_c) + ' °C';
+          location.textContent = data.name + ',';
+          weather.textContent = Math.floor(data.main.temp) + ' °C';
         })
     }
 
