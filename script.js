@@ -109,7 +109,7 @@ const findMyCity = () => {
     }
 
     const error = () => {
-        location.textContent = 'unable to receive location';
+        location.textContent = 'Location';
     }
 
     navigator.geolocation.getCurrentPosition(success, error);
