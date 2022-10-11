@@ -78,7 +78,7 @@ body {
 
 .header_clock-wrapper {
     display: flex;
-    justify-content: end;
+    justify-content: center;
 
     width: 100%;
 }
@@ -383,9 +383,9 @@ body {
         padding: 10px 20px;
     }
 
-    .header_clock-wrapper {
+    /* .header_clock-wrapper {
         justify-content: end;
-    }
+    } */
 
     .header_weather-wrapper {
         flex-direction: row;
@@ -398,5 +398,11 @@ body {
 
     .todo_action {
         width: 10%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header_clock-wrapper {
+        justify-content: end;
     }
 }

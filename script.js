@@ -37,6 +37,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(clock, 1000);
 
+    // Location
+
+    findMyCity();
+
     // Create, render task and add to localStorage
     todoForm.addEventListener('submit', e => {
         e.preventDefault();
@@ -84,6 +88,33 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const select = document.querySelector('.select_tasks');
 const allTasks = document.querySelector('.all_tasks');
+
+// Receive your current position
+
+const findMyCity = () => {
+
+    const location = document.querySelector('.header_weather-location');
+    
+    const success = (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Geolocation API url
+        const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+
+        fetch(geoApiUrl)
+        .then(res => res.json())
+        .then(data => {
+            location.textContent = data.locality + ',';
+        })
+    }
+
+    const error = () => {
+        location.textContent = 'unable to receive location';
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+}
 
 const renderTodo = () => {
 
