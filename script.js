@@ -36,9 +36,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(clock, 1000);
 
-    // Location
+    // Weather and Location
 
-    findMyCity();
+    getForecast();
 
     // Create, render task and add to localStorage
     todoForm.addEventListener('submit', e => {
@@ -90,26 +90,29 @@ const allTasks = document.querySelector('.all_tasks');
 
 // Receive your current position
 
-const findMyCity = () => {
+const getForecast = () => {
 
     const location = document.querySelector('.header_weather-location');
+    const weather = document.querySelector('.header_weather-degrees');
     
     const success = (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        // Geolocation API url
-        const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+        // Weather API url
+        const weatherApiUrl = `http://api.weatherapi.com/v1/current.json?key=25fb10b92c0c480fa26183729221110&q=${latitude},${longitude}&aqi=no`
 
-        fetch(geoApiUrl)
+        fetch(weatherApiUrl)
         .then(res => res.json())
         .then(data => {
-            location.textContent = data.locality + ',';
+            location.textContent = data.location.name + ',';
+            weather.textContent = Math.floor(data.current.temp_c) + ' °C';
         })
     }
 
     const error = () => {
         location.textContent = 'Location';
+        weather.textContent = 'Weather';
     }
 
     navigator.geolocation.getCurrentPosition(success, error);
