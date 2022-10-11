@@ -105,7 +105,6 @@ const findMyCity = () => {
         .then(res => res.json())
         .then(data => {
             location.textContent = data.locality + ',';
-            console.log(data.locality);
         })
     }
 
