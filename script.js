@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const clock = () => {
         const clockHours = document.querySelector('.header_clock-hours');
-        const clockDots = document.querySelector('.header_clock-dots');
         const clockMinuts = document.querySelector('.header_clock-minutes');
 
         const date = new Date();
@@ -106,6 +105,7 @@ const findMyCity = () => {
         .then(res => res.json())
         .then(data => {
             location.textContent = data.locality + ',';
+            console.log(data.locality);
         })
     }
 
