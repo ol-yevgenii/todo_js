@@ -12,7 +12,7 @@
     
     <div class="body_wrapper">
         <header class="header">
-            <section class="header_greetings">
+            <div class="header_greetings">
                 <label>
                     Hey, how are you,
                     <input 
@@ -23,20 +23,20 @@
                         placeholder="Name"
                     >
                 </label>
-            </section>
-            <section class="header_clock">
+            </div>
+            <div class="header_clock">
                 <div class="header_clock-wrapper">
                     <div class="header_clock-hours"></div>
                     <div class="header_clock-dots">:</div>
                     <div class="header_clock-minutes"></div>
                 </div>
-            </section>
-            <section class="header_weather">
+            </div>
+            <div class="header_weather">
                 <div class="header_weather-wrapper">
                     <div class="header_weather-location"></div>
                     <div class="header_weather-degrees"></div>
                 </div>
-            </section>
+            </div>
         </header>
     
         <main class="main">
@@ -67,7 +67,7 @@
                                 value="business"
                             >
                             <span class="business_bubble"></span>
-                            <div class="category_name">Business</div>
+                            <span class="category_name">Business</span>
                         </label>
     
                         <label class="category category_hover" for="category2">
@@ -78,7 +78,7 @@
                                 value="personal"
                             >
                             <span class="personal_bubble"></span>
-                            <div class="category_name">Personal</div>
+                            <span class="category_name">Personal</span>
                         </label>
                     </div>
                     <button 
@@ -94,8 +94,7 @@
                     <h2 class="render_todo-label">ToDo List</h2>
                     <select 
                         class="select_tasks" 
-                        name="task_status" 
-                        size=""
+                        name="task_status"
                         id="task_status">
                         <option value="1">All tasks</option>
                         <option value="2">Current tasks</option>
