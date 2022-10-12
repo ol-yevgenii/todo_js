@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    setTimeout(clock, 1000);
+    setInterval(clock, 1000);
 
     // Weather and Location
 
